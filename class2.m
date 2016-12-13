@@ -15,7 +15,7 @@ syms x
 syms y
 f(x,y)=x.^2+2*y.^2;
 
-%对y一阶偏导
+%对x一阶偏导
 fx=diff(f(x,y),x);
 %对y求一阶偏导
 fy=diff(f(x,y),y);
@@ -25,12 +25,12 @@ fep=@(x)eval(fx);
 [epx,fxval] = fzero(fep,rand());
 epx=roundn(epx,1);
 
-%导数fy=0，求x的值
+%导数fy=0，求y的值
 fep=@(y)eval(fy); 
 [epy,fyval] = fzero(fep,rand());
 epy=roundn(epy,1);
 
-%对y二阶偏导
+%对x二阶偏导
 fxx=diff(f(x,y),x,2);
 %对y求二阶偏导
 fyy=diff(f(x,y),y,2);
